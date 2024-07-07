@@ -14,8 +14,13 @@
 #define ECS_TOOLS_SYSTEM_HPP
 
 
-class system {
+#include "types.hpp"
 
+#include <set>
+
+class System {
+public:
+    std::set<Entity> _entities;
 };
 
 

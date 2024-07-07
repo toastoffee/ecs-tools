@@ -59,6 +59,17 @@ public:
         _livingEntitiesCount--;
     }
 
+    void SetSignature(Entity entity, Signature signature) {
+        assert(entity < MAX_ENTITIES && "entity id out of range");
+
+        _signatures[entity] = signature;
+    }
+
+    Signature GetSignature(Entity entity){
+        assert(entity < MAX_ENTITIES && "entity id out of range");
+
+        return _signatures[entity];
+    }
 };
 
 

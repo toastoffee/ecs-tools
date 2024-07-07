@@ -70,6 +70,21 @@ public:
         _size--;
     }
 
+    T& GetData(Entity entity) {
+        assert(_entityToIndexMap.find(entity) != _entityToIndexMap.end()
+               && "Retrieve a non-existent component.");
+
+        size_t index = _entityToIndexMap[entity];
+        return _componentArray[index];
+    }
+
+    void EntityDestroyed(Entity entity) override {
+        if(_entityToIndexMap.find(entity) != _entityToIndexMap.end()){
+            // remove the entity's component if is existed
+            RemoveData(entity);
+        }
+    }
+
 };
 
 
